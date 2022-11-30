@@ -8,11 +8,16 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'projects/index.html')
+    return render(request, 'index.html')
+
+
+def projects(request):
+    msg = "projects"
+    return render(request, 'projects/projects.html', {'msg': msg})
 
 
 def contact(request):
-    return HttpResponse("Thiks is contact page")
+    return render(request, 'projects/navbar.html')
 
 
 def service(request, pk):
