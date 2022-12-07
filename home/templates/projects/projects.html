@@ -2,22 +2,69 @@
 {% extends 'main.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects</title>
-  </head>
-  <body>
-    <h1>This is the Projects</h1>
-    <h3>Your are on the {{msg}}</h3>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Projects</title>
+	</head>
+	<body>
+		<h3>Your are on the {{msg}}</h3>
 
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam
-      perferendis quo distinctio ipsam tempora ratione excepturi perspiciatis,
-      eveniet consequatur? Temporibus impedit nulla ad corporis quasi deleniti
-      doloribus maxime odit itaque.
-    </p>
-  </body>
+		{% comment %} <ul>
+			{% for project in projects%}
+			<li><a href='/project/{{project.id}}'>Name :{{project.title}}</li></a>
+
+			<li>Description :{{project.description}}</li>
+			
+			{% endfor %}
+		</ul> {% endcomment %}
+    <table>
+
+
+      <tr>
+
+        <th> ID</th>
+        <th> Projects Name</th>
+        <th> Votes</th>
+        <th> Ratio</th>
+      </tr>
+      {% for project in projects%}
+      <tr>
+
+       
+			{% comment %} <li><a href='/project/{{project.id}}'>Name :{{project.title}}</li></a> {% endcomment %}
+
+      <td>
+        {{project.id}}</td>
+      
+			<td>
+        {{project.title}}</td>
+      
+      <td>
+        {{project.vote_total}}</td>
+      
+      <td>
+        {{project.vote_ratio}} </td>
+     
+      <td>
+        {{project.created}}</td>
+      
+			
+			
+        
+        
+      <tr>
+        {% endfor %}
+
+    </table>
+
+		<p>
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam
+			perferendis quo distinctio ipsam tempora ratione excepturi perspiciatis,
+			eveniet consequatur? Temporibus impedit nulla ad corporis quasi deleniti
+			doloribus maxime odit itaque.
+		</p>
+	</body>
 </html>
 {% endblock content %}
