@@ -9,12 +9,11 @@
 		<title>Navbar</title>
 	</head>
 	<body>
+		<img width="400" height="400" src="{{projectobj.featured_image.url}}" />
 		<h1>Nav Bar</h1>
 		<hr />
-
 		<h1>{{projectobj.title}}</h1>
 		<hr />
-
 		{% for tag in projectobj.tag.all %}
 		<span> {{tag}}</span>
 		{% endfor %}

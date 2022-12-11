@@ -1,4 +1,5 @@
 <!-- @format -->
+
 {% extends 'main.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,58 +7,49 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 		<title>Projects</title>
 	</head>
 	<body>
+		<a href="{% url 'create-project' %}"> Add Form</a>
 		<h3>Your are on the {{msg}}</h3>
 
-		{% comment %} <ul>
+		<table>
+			<tr>
+				<th>Projects Name</th>
+				<th>Votes</th>
+				<th>Tags</th>
+				<th>Ratio</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
 			{% for project in projects%}
-			<li><a href='/project/{{project.id}}'>Name :{{project.title}}</li></a>
+			<tr>
+				<td>{{project.title}}</td>
 
-			<li>Description :{{project.description}}</li>
-			
-			{% endfor %}
-		</ul> {% endcomment %}
-    <table>
+				<td>{{project.vote_total}}</td>
+				<td>{{project.tag}}</td>
 
+				<td>{{project.vote_ratio}}</td>
 
-      <tr>
+				<td>{{project.created}}</td>
 
-        <th> ID</th>
-        <th> Projects Name</th>
-        <th> Votes</th>
-        <th> Ratio</th>
-      </tr>
-      {% for project in projects%}
-      <tr>
+				<td>
+					<a href="{% url 'update-project' project.id%}"> Edit </a>
+				</td>
+				<td>
+					<a href="{% url 'delete-project' project.id%}"> Delete </a>
+				</td>
+				<td>
+					<a href="{% url 'project' project.id%}"> View </a>
+				</td>
+			</tr>
 
-       
-			{% comment %} <li><a href='/project/{{project.id}}'>Name :{{project.title}}</li></a> {% endcomment %}
-
-      <td>
-        {{project.id}}</td>
-      
-			<td>
-        {{project.title}}</td>
-      
-      <td>
-        {{project.vote_total}}</td>
-      
-      <td>
-        {{project.vote_ratio}} </td>
-     
-      <td>
-        {{project.created}}</td>
-      
-			
-			
-        
-        
-      <tr>
-        {% endfor %}
-
-    </table>
+			<tr>
+				{% endfor %}
+			</tr>
+		</table>
 
 		<p>
 			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam

@@ -1,0 +1,13 @@
+<!-- @format -->
+
+{% extends 'main.html'%} {% block content %}
+
+<form action="" method="POST">
+	{% csrf_token %}
+	<h1>Are you sure You want to delet {{object}}</h1>
+	<a href="{% url 'projects'%}">Go back</a>
+
+	<input type="submit" value="confirm" />
+</form>
+
+{% endblock %}
